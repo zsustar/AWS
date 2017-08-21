@@ -1,0 +1,47 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  
+  "Description" : "Creating Master Security Groups for Linux",
+  "Parameters" : {
+
+    "VPCID" : {
+      "Type" : "String",
+      "Description" : "ID of VPC to deploy Security Group",
+      "Default": "vpc-3dee1559"
+    },
+    "MasterGroupName" : {
+      "Type" : "String",
+      "Description" : "Name of Linux Master Security Group",
+      "Default": "test"
+    }
+   },
+
+  "Resources" : {
+   
+      "InstanceSecurityGroup" : {
+         "Type"       : "AWS::EC2::SecurityGroup",
+         "Properties" : {
+            "GroupName"        : {"Ref" : "MasterGroupName"},
+            "GroupDescription" : "Master Group for Linux System",
+            "VpcId"            : {"Ref" : "VPCID"},
+            "Tags"             : [{
+                                   "Key"   : "Name",
+                                   "Value" : { "Ref" : "MasterGroupName" }
+            }],
+            "SecurityGroupIngress" : [{
+                  "IpProtocol" : "icmp",
+                  "FromPort"   : "8",
+                  "ToPort"     : "-1",
+                  "CidrIp"     : "0.0.0.0/0"
+               },
+               {
+                  "IpProtocol" : "tcp",
+                  "FromPort"   : "22",
+                  "ToPort"     : "22",
+                  "CidrIp"     : "0.0.0.0/0"
+               }
+            ]
+         }
+      } 
+    }
+}
