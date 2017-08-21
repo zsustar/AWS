@@ -505,7 +505,7 @@
   "StarLaunchConfig" : {
    "Type" : "AWS::AutoScaling::LaunchConfiguration",
    "Properties" : {
-      "KeyName" :  "StarKey" ,
+      "KeyName" :  "star_lab" ,
       "ImageId" :  "ami-02021961" ,
       "SecurityGroups": [{"Ref" : "StarSecurityGroup"}],
       "InstanceType" :  "t2.micro" ,
