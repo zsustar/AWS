@@ -31,6 +31,7 @@
       ec2_secret_key: "{{ ec2_secret_key }}"
       keypair: "{{ item.keypair }}"
       group: "{{ item.group }}"
+      vpc_subnet_id: "{{ subnet_id }}"
       instance_type: "{{ item.instance_type }}"
       image: "{{ item.image }}"
       instance_tags: "{{ item.instance_tags }}"
