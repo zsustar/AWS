@@ -1,0 +1,31 @@
+---
+# set these parameters to control the region, keypair, and AMI that are launched
+ec2_region: ap-southeast-2
+instances_keypair: keypair_name
+image_id: amiid
+vpc_id: vpcid
+
+# security groups to be created
+security_groups:
+  - name: RDP
+    desc: the security group for the host
+    rules:
+      - proto: tcp
+        from_port: 3389
+        to_port: 3389
+        cidr_ip: 0.0.0.0/0
+
+# Instances to launch be launched.
+# If you re-run the playbook after modifying exact_count,
+# instances will be terminated if the actual count > exact_count,
+# or new instances will be launched if actual count < exact_count.
+
+ec2_instances:
+  - instance_type: t2.micro
+    image: "{{ image_id }}"
+    assign_public_ip: true
+    keypair: "{{instances_keypair}}"
+    group: ['ssh']
+    instance_tags:
+        Name: Star_Test_Jumpbox
+    exact_count: 1
