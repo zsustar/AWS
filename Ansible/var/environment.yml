@@ -2,7 +2,7 @@
 # set these parameters to control the region, keypair, and AMI that are launched
 ec2_region: ap-southeast-2
 instances_keypair: star_lab
-image_id: ami-02021961
+image_id: ami-18dcc77b
 vpc_id: vpc-6970040d
 
 # security groups to be created
