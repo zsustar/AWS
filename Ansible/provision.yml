@@ -5,8 +5,8 @@
   gather_facts: False
 
   vars_files:
-    - vars/environment.yml
-    - vars/aws-creds.yml
+    - var/environment.yml
+    - var/aws-creds.yml
 
   tasks:
 
