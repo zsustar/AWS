@@ -1,0 +1,20 @@
+project_variables:
+  ProjectName: StarTest
+  Environment: Dev
+  KeyName: StarKey
+
+securityGroups:
+  data:
+    0.0.0.0/0: [5432]
+
+rdsInstances:
+  msRDSinstance:
+    DBName: stardb
+    type: postgres
+    subnetGroup: dbsubnet
+    username: star
+    InstanceType: db.t2.micro
+    EBS: 5
+    Port: 5432
+    Engine: postgres
+    security_groups: [data]
