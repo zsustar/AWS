@@ -5,6 +5,7 @@ instances_keypair: star_lab
 image_id: ami-18dcc77b
 vpc_id: vpc-6970040d
 subnet_id: xxxxxx
+#subnet id is the new subnet created by CF template
 
 # security groups to be created
 security_groups:
