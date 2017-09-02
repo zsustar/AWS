@@ -1,1 +1,1 @@
-# Template to create AWS
+# Template to create AWS for testing
