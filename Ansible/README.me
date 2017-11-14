@@ -4,6 +4,10 @@ This is the template to provision Windows server using Ansible.
 Steps:
 
 1. Add your own AWS credentials into vars/aws-creds.yml
-2. Edit vars/environment.yml to define the security groups, sets of instances, etc。
-3. Run: ansible-playbook -i hosts provision.yml
+2. Edit vars/environment.yml to define the security groups, sets of instances, etc
+3. Make sure boto and boto3 have been installed on Ansible machine
+`sudo pip install boto`  
+`sudo pip install boto3`  
+4. Make sure the RDP SG doesn't exist in AWS.
+5. Run: ansible-playbook -i hosts provision.yml
 
